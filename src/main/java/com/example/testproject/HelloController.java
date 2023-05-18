@@ -42,6 +42,7 @@ public class HelloController {
     static {
         SUFFIX.put(1, "тысяча");
         SUFFIX.put(2, "миллион");
+        SUFFIX.put(3, "миллиард");
     }
 
     @FXML
