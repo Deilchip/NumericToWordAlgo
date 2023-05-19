@@ -3,90 +3,111 @@ package com.example.testproject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class HelloController {
     private StringBuilder res = new StringBuilder();
-    private byte i = 0;
-    private static final HashMap<Integer, String> VALUE = new HashMap<>();
-
-    static {
-        VALUE.put(1, "один");
-        VALUE.put(2, "два");
-        VALUE.put(3, "три");
-        VALUE.put(4, "четыре");
-        VALUE.put(5, "пять");
-        VALUE.put(6, "шесть");
-        VALUE.put(7, "семь");
-        VALUE.put(8, "восемь");
-        VALUE.put(9, "девять");
-    }
-
-    private static final HashMap<Integer, String> HUNDRED = new HashMap<>();
-
-    static {
-        HUNDRED.put(1, "сто");
-        HUNDRED.put(2, "двести");
-        HUNDRED.put(3, "триста");
-        HUNDRED.put(4, "четыреста");
-        HUNDRED.put(5, "пятьсот");
-        HUNDRED.put(6, "шестьсот");
-        HUNDRED.put(7, "семьсот");
-        HUNDRED.put(8, "восемьсот");
-        HUNDRED.put(9, "девятьсот");
-    }
-
-    private static final HashMap<Integer, String> SUFFIX = new HashMap<>();
-
-    static {
-        SUFFIX.put(1, "тысяча");
-        SUFFIX.put(2, "миллион");
-        SUFFIX.put(3, "миллиард");
-    }
+    private byte index = 0;
+    private int summaryDigit = 0;
 
     @FXML
     private Label welcomeText;
 
     @FXML
     protected void onHelloButtonClick() {
-        i = 0;
         res = new StringBuilder();
         Scanner in = new Scanner(System.in);
         System.out.print("Input a number: ");
         long num = in.nextInt();
-        welcomeText.setText(numericToText(num).toString());
+        welcomeText.setText(countOrder(numericText(num)).toString());
     }
 
-    public StringBuilder numericToText(long num) {
-        if (num == 0 && i == 0) {
-            res.append("ноль");
-            return res;
+    private StringBuilder countOrder(ArrayList<Byte> sequence) {
+        if (sequence.size() > 3)
+            summaryDigit = sequence.size() / 3;
+        while (sequence.size() % 3 != 0) {
+            sequence.add(0, (byte) 0);
         }
-        if (num == 0)
-            return res;
-        byte unit = (byte) (num % 10);
-        i += 1;
-        if ((i - 1) % 3 == 0 && i > 3) {
-            SUFFIX.forEach((key, value) -> {
-                if (key == i / 3) {
-                    res.insert(0, " ").insert(0, value);
+        int i = 0;
+        while (i != sequence.size()) {
+            if (index == 0) {
+                searchHundreds(sequence.get(i));
+                i++;
+            }
+            if (index == 1) {
+                if (sequence.get(i) == 1 && sequence.get(i + 1) != 0) {
+                    searchUniqueTens(sequence.get(i + 1));
+                    i += 2;
+                } else {
+                    searchTens(sequence.get(i));
+                    i++;
+                    searchNumber(sequence.get(i));
+                    i++;
                 }
-            });
+
+            }
         }
-        if (i % 3 == 0) {
-            HUNDRED.forEach((key, value) -> {
-                if (key == unit) {
-                    res.insert(0, " ").insert(0, value);
+        return res;
+    }
+
+    private void searchNumber(Byte sequence) {
+        Constants.NUMBERS_INDEX.forEach((key, value) -> {
+            if (key == (int) sequence)
+                if (summaryDigit <= 0)
+                    res.append(value);
+               else if (key == 1)
+                    if (summaryDigit == 1)
+                        res.append(Constants.NUMBERS_DECLINATION.get(1)).append(Constants.LARGE_ONE_INDEX.get(summaryDigit));
+                    else res.append(value).append(Constants.LARGE_ONE_INDEX.get(summaryDigit));
+                else if (key <= 4) {
+                    if (key == 2 && summaryDigit == 1)
+                        res.append(Constants.NUMBERS_DECLINATION.get(2)).append(Constants.LARGE_THREE_INDEX.get(summaryDigit));
+                    else res.append(value).append(Constants.LARGE_THREE_INDEX.get(summaryDigit));
+                } else if (key <= 9) {
+                    res.append(value).append(Constants.LARGE_TWO_INDEX.get(summaryDigit));
                 }
-            });
-            return numericToText(num / 10);
-        }
-        VALUE.forEach((key, value) -> {
-            if (key == unit) {
-                res.insert(0, " ").insert(0, value);
+        });
+        summaryDigit -= 1;
+    }
+
+    private void searchTens(Byte sequence) {
+        Constants.TEN_INDEX.forEach((key, value) -> {
+            if (key == (int) sequence)
+                res.append(value);
+        });
+        index-=1;
+    }
+
+    private void searchUniqueTens(Byte sequenceNumber) {
+        Constants.UNIQUE_TENS.forEach((key, value) -> {
+            if (key == (int) sequenceNumber) {
+                if(summaryDigit!=0)
+                res.append(value).append(Constants.LARGE_TWO_INDEX.get(summaryDigit));
+                else res.append(value);
             }
         });
-        return numericToText(num / 10);
+        summaryDigit-=1;
+        index -= 1;
+    }
+    private void searchHundreds(Byte sequence) {
+        Constants.HUNDRED_INDEX.forEach((key, value) -> {
+            if (key == (int) sequence)
+                res.append(value);
+        });
+        index++;
+    }
+
+    private ArrayList<Byte> numericText(long num) {
+        if (num < 0) {
+            num *= -1;
+            res.insert(0, "минус ");
+        }
+        ArrayList<Byte> result = new ArrayList<>();
+        while (num != 0) {
+            result.add((byte) (num % 10));
+            num /= 10;
+        }
+        Collections.reverse(result);
+        return result;
     }
 }
