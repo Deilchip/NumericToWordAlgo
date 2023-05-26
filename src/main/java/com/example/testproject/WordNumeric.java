@@ -7,6 +7,7 @@ public class WordNumeric {
     private StringBuilder res = new StringBuilder();
     private int summaryDigit = 0;
     private int indexMinus = 0;
+    private byte indexZeroCount = 0;
     public String getRes() {
         return res.toString().trim();
     }
@@ -61,8 +62,9 @@ public class WordNumeric {
 
     public void numericText(String num) {
         res.setLength(0);
-        String[] allNumbers = num.replaceAll(" ", "").split(";");
+        String[] allNumbers = num.split(";");
         for (int i = allNumbers.length - 1; i >= 0; i--) {
+            allNumbers[i].replaceAll("[^\\d]","");
             if (allNumbers[i].charAt(0) == '-') {
                 indexMinus++;
                 allNumbers[i] = allNumbers[i].substring(1);
