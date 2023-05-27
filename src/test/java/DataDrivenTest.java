@@ -19,13 +19,13 @@ public class DataDrivenTest {
     }
 
     @Test
-    public void testNumericText() throws IOException {
+    public void testNumericText() throws Exception {
         InputStream in = new FileInputStream("src/test/resources/DDT.xls");
         HSSFWorkbook wb = new HSSFWorkbook(in);
         DataFormatter formatter = new DataFormatter();
         Sheet sheet = wb.getSheet("Лист1");
         for (Row row : sheet) {
-            numeric.numericText(formatter.formatCellValue(row.getCell(0)));
+            numeric.inputEdit(formatter.formatCellValue(row.getCell(0)));
             assertEquals(row.getCell(1).getStringCellValue(), numeric.getRes().replaceFirst("\n", ""));
         }
     }

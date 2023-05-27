@@ -15,7 +15,6 @@ public class HelloController {
     private Button buttonStart;
     @FXML
     private CustomContextMenuTextField input;
-    char nextSymbol;
 
      public void initialize() {
          input.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
@@ -24,8 +23,6 @@ public class HelloController {
                  event.consume();
              }
          });
-
-
         input.textProperty().addListener((observable, oldValue, newValue) -> {
             buttonStart.setDisable(input.getText().isEmpty());
             if (newValue.isEmpty()) {
@@ -33,31 +30,22 @@ public class HelloController {
             }
             if (newValue.length() == 1 && newValue.charAt(0) == '-') {
 
-            } else {
-                nextSymbol = newValue.charAt(newValue.length() - 2);
-                if (newValue.length() > 1 && newValue.charAt(newValue.length() - 1) == '-' &&
-                        (nextSymbol == '-' ||
-                                !newValue.matches(".*;-.*") ||
-                                Character.isDigit(nextSymbol))) {
-                    input.setText(newValue.substring(0, newValue.length() - 1));
-                } else if (!newValue.matches("[0-9\\-;]*")) {
-                    input.setText(newValue.substring(0, newValue.length() - 1));
-                }
+            } else if (newValue.length() > 1 && newValue.charAt(newValue.length() - 1) == '-' &&
+                    (newValue.charAt(newValue.length() - 2) == '-' ||
+                            !newValue.matches(".*\\d;\\d.*") || // <-- Добавлено новое условие
+                            Character.isDigit(newValue.charAt(newValue.length() - 2)))) {
+                input.setText(newValue.substring(0, newValue.length() - 1));
+            } else if (!newValue.matches("[0-9\\-;]*")) {
+                input.setText(newValue.substring(0, newValue.length() - 1));
             }
         });
     }
 
-
-
-
-
     @FXML
-    public void Start() {
-        out.setText(input.getText());
+    public void Start() throws Exception {
         WordNumeric numericToWord = new WordNumeric();
-        numericToWord.numericText(String.valueOf(input.textProperty()));
-        //  out.setText(numericToWord.getRes());
+        numericToWord.inputEdit(String.valueOf(input.textProperty().getValue()));
+        out.setText(numericToWord.getRes());
     }
-
 
 }

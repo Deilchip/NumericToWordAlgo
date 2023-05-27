@@ -1,14 +1,10 @@
-package com.example.testproject;
+package com.example.testproject.constants;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class Constants{
+
+public class ConstantsNumber {
     public static final String ZERO ="ноль";
-    public static final String MINUS ="минус";
-    public static final byte FIRST =0;
-    public static final byte SECOND =1;
-
     public static final ArrayList<String> NUMBERS_INDEX = new ArrayList<>();
     static {
 
