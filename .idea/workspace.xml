@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c34fe2d-bbd5-424f-b1fb-f14e4d13214a" name="Changes" comment="numericToText">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsSuffix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/digit/NumberAdder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/digit/SearchDigit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/input/Edit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/input/InputData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Common.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/SuffixAdder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Thousand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/BigIntSequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomBigInt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomContextMenuTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomContextMenuTextField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DataDrivenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DataDrivenTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DDT.xls" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/DDT.xls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +66,7 @@
       <recent name="com.example.testproject" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DataDrivenTest.testNumericText">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.testproject.HelloApplication" />
       <module name="TestProject" />
@@ -176,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685173839833</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="numericToText">
+      <created>1685211564703</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685211564703</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,22 +200,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java</url>
-          <line>104</line>
+          <line>107</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java</url>
-          <line>30</line>
+          <line>31</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java</url>
-          <line>114</line>
+          <line>117</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java</url>
-          <line>103</line>
+          <line>106</line>
           <properties class="com.example.testproject.WordNumeric" method="searchNumber">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -233,7 +224,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java</url>
-          <line>44</line>
+          <line>45</line>
           <properties class="com.example.testproject.HelloController" method="Start">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

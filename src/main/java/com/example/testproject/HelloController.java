@@ -16,13 +16,14 @@ public class HelloController {
     @FXML
     private CustomContextMenuTextField input;
 
-     public void initialize() {
-         input.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-             if (event.isControlDown() && event.getCode().toString().equals("V")
-                     || event.isMetaDown() && event.getCode().toString().equals("V")) {
-                 event.consume();
-             }
-         });
+    @SuppressWarnings("all")
+    public void initialize() {
+        input.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if (event.isControlDown() && event.getCode().toString().equals("V")
+                    || event.isMetaDown() && event.getCode().toString().equals("V")) {
+                event.consume();
+            }
+        });
         input.textProperty().addListener((observable, oldValue, newValue) -> {
             buttonStart.setDisable(input.getText().isEmpty());
             if (newValue.isEmpty()) {

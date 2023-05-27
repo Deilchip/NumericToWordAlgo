@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class WordNumeric {
     //для записи результата
-    private StringBuilder res = new StringBuilder();
+    private final StringBuilder res = new StringBuilder();
     //для подсчета разряда после просмотра каждых 3 цифр
     private int summaryDigit = 0;
     //индекс для проверки отрицательного значения
@@ -135,6 +135,7 @@ public class WordNumeric {
             setZeroIndexes();
         }
     }
+    @SuppressWarnings("unused" )
     public boolean checkFormat(String inputSequence) {
         if (((double) inputSequence.length() / 3) > ConstantsNumber.LARGE_INDEX.size()) {
             res.append(ConstantsError.ERROR_SIZE);

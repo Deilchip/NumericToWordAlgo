@@ -1,9 +1,5 @@
 package com.example.testproject.input;
 
-import com.example.testproject.constants.ConstantsError;
-import com.example.testproject.constants.ConstantsNumber;
-
-import java.math.BigInteger;
 
 public class InputData implements Edit {
     @Override
@@ -13,10 +9,7 @@ public class InputData implements Edit {
 
     @Override
     public boolean checkMinus(String inputSequence) {
-        if (inputSequence.charAt(0) == '-') {
-            return true;
-        }
-        return false;
+        return inputSequence.charAt(0) == '-';
     }
 
 }

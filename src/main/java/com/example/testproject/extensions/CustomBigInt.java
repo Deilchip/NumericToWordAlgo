@@ -13,9 +13,7 @@ public class CustomBigInt {
         }
     }
     public boolean checkValue() {
-        if (numericView.equals(BigInteger.valueOf(0)))
-            return true;
-        else return false;
+        return numericView.equals(BigInteger.valueOf(0));
     }
     public void deleteDigit(byte count) {
         while (count != 0) {
