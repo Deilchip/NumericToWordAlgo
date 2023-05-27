@@ -2,6 +2,8 @@ package com.example.testproject;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.KeyEvent;
 
 public class HelloController {
 
@@ -14,9 +16,16 @@ public class HelloController {
     private TextField input;
 
      public void initialize() {
+         input.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+             // Windows: Ctrl+V; MacOS: Cmd+V
+             if (event.isControlDown() && event.getCode().toString().equals("V")
+                     || event.isMetaDown() && event.getCode().toString().equals("V")) {
+                 event.consume();
+             }
+         });
+
         input.textProperty().addListener((observable, oldValue, newValue) -> {
             buttonStart.setDisable(input.getText().isEmpty());
-
             if (newValue.isEmpty()) {
                 return;
             }
@@ -32,6 +41,7 @@ public class HelloController {
             }
         });
     }
+
 
 
 
