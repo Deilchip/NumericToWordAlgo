@@ -6,4 +6,5 @@ module com.example.testproject {
 
     opens com.example.testproject to javafx.fxml;
     exports com.example.testproject;
+    exports com.example.testproject.extensions to javafx.fxml;
 }

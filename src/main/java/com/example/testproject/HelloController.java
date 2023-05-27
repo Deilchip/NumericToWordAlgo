@@ -1,9 +1,10 @@
 package com.example.testproject;
 
+import com.example.testproject.extensions.CustomContextMenuTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.Clipboard;
 import javafx.scene.input.KeyEvent;
+
 
 public class HelloController {
 
@@ -13,16 +14,17 @@ public class HelloController {
     @FXML
     private Button buttonStart;
     @FXML
-    private TextField input;
+    private CustomContextMenuTextField input;
+    char nextSymbol;
 
      public void initialize() {
          input.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-             // Windows: Ctrl+V; MacOS: Cmd+V
              if (event.isControlDown() && event.getCode().toString().equals("V")
                      || event.isMetaDown() && event.getCode().toString().equals("V")) {
                  event.consume();
              }
          });
+
 
         input.textProperty().addListener((observable, oldValue, newValue) -> {
             buttonStart.setDisable(input.getText().isEmpty());
@@ -31,13 +33,16 @@ public class HelloController {
             }
             if (newValue.length() == 1 && newValue.charAt(0) == '-') {
 
-            } else if (newValue.length() > 1 && newValue.charAt(newValue.length() - 1) == '-' &&
-                    (newValue.charAt(newValue.length() - 2) == '-' ||
-                            !newValue.matches(".*;\\-.*") ||
-                            Character.isDigit(newValue.charAt(newValue.length() - 2)))) {
-                input.setText(newValue.substring(0, newValue.length() - 1));
-            } else if (!newValue.matches("[0-9\\-;]*")) {
-                input.setText(newValue.substring(0, newValue.length() - 1));
+            } else {
+                nextSymbol = newValue.charAt(newValue.length() - 2);
+                if (newValue.length() > 1 && newValue.charAt(newValue.length() - 1) == '-' &&
+                        (nextSymbol == '-' ||
+                                !newValue.matches(".*;-.*") ||
+                                Character.isDigit(nextSymbol))) {
+                    input.setText(newValue.substring(0, newValue.length() - 1));
+                } else if (!newValue.matches("[0-9\\-;]*")) {
+                    input.setText(newValue.substring(0, newValue.length() - 1));
+                }
             }
         });
     }

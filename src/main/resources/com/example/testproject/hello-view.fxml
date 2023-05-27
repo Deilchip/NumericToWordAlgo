@@ -9,6 +9,7 @@
 
 
 <?import javafx.scene.control.TextField?>
+<?import com.example.testproject.extensions.CustomContextMenuTextField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="393.0" prefWidth="347.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testproject.HelloController">
     <children>
         <Text layoutX="14.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Для множественного выбора - вводить через символ &quot;;&quot;">
@@ -17,7 +18,7 @@
             </font>
         </Text>
         <Button fx:id="buttonStart" layoutX="144.0" layoutY="339.0" mnemonicParsing="false" onAction="#Start" text="Начать" disable="true" />
-        <TextField fx:id="input" layoutX="12.0" layoutY="298.0" prefHeight="26.0" prefWidth="324.0" />
+        <CustomContextMenuTextField fx:id="input" layoutX="12.0" layoutY="298.0" prefHeight="26.0" prefWidth="324.0" />
         <TextArea fx:id="out" layoutX="12.0" layoutY="14.0" prefHeight="237.0" prefWidth="324.0" wrapText="true" editable="false"/>
     </children>
 </AnchorPane>
