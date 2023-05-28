@@ -20,7 +20,6 @@ public class CustomBigInt {
             numericView = numericView.divide(BigInteger.TEN);
             count--;
         }
-
     }
     public byte seeTens() {
         return numericView.divide(BigInteger.TEN).mod(BigInteger.TEN).byteValue();
@@ -29,6 +28,4 @@ public class CustomBigInt {
     public byte seeCurrentDigit() {
         return numericView.mod(BigInteger.TEN).byteValue();
     }
-
-
 }

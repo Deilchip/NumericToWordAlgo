@@ -26,7 +26,7 @@ public class DataDrivenTest {
         Sheet sheet = wb.getSheet("Лист1");
         for (Row row : sheet) {
             numeric.inputEdit(formatter.formatCellValue(row.getCell(0)));
-            assertEquals(row.getCell(1).getStringCellValue(), numeric.getRes().replaceFirst("\n", ""));
+            assertEquals(row.getCell(1).getStringCellValue(), numeric.getRes().trim());
         }
     }
 }

@@ -119,32 +119,34 @@ public class WordNumeric {
         String[] number = numSequence.split(";");
         setEdit(new InputData());
         for (int i = number.length - 1; i >= 0; i--) {
-            if (edit.checkZero(numSequence)) {
+            if (!checkFormat(number[i]))
+                continue;
+            if (edit.checkZero(number[i])) {
                 addTextToRes(ConstantsNumber.ZERO);
                 continue;
-            } else if (edit.checkMinus(numSequence)) {
+            } else if (edit.checkMinus(number[i])) {
                 indexMinus = 1;
                 number[i] = number[i].replaceFirst("-", "");
             }
-            if (checkFormat(number[i])) {
-                countOrder(new CustomBigInt(number[i]));
-                if (indexMinus == 1)
-                    addTextToRes(ConstantsSuffix.MINUS);
-                addTextToRes(ConstantsSuffix.NEXT_LINE);
-            }
+            countOrder(new CustomBigInt(number[i]));
+            if (indexMinus == 1)
+                addTextToRes(ConstantsSuffix.MINUS);
+            addTextToRes(ConstantsSuffix.NEXT_LINE);
             setZeroIndexes();
+
         }
     }
-    @SuppressWarnings("unused" )
+
+    @SuppressWarnings("unused")
     public boolean checkFormat(String inputSequence) {
-        if (((double) inputSequence.length() / 3) > ConstantsNumber.LARGE_INDEX.size()) {
-            res.append(ConstantsError.ERROR_SIZE);
-            System.out.println(inputSequence + " - " + ConstantsError.ERROR_SIZE);
-            return false;
-        }
         if (inputSequence.length() == 0) {
             res.append(ConstantsError.ERROR_NULL);
             System.out.println(ConstantsError.ERROR_NULL);
+            return false;
+        }
+        if (((double) inputSequence.length() / 3) > ConstantsNumber.LARGE_INDEX.size()) {
+            res.append(ConstantsError.ERROR_SIZE);
+            System.out.println(inputSequence + " - " + ConstantsError.ERROR_SIZE);
             return false;
         }
         try {
@@ -156,6 +158,7 @@ public class WordNumeric {
         }
         return true;
     }
+
     private void setZeroIndexes() {
         summaryDigit = 0;
         indexMinus = 0;
