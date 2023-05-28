@@ -119,8 +119,9 @@ public class WordNumeric {
         String[] number = numSequence.split(";");
         setEdit(new InputData());
         for (int i = number.length - 1; i >= 0; i--) {
-            if (!checkFormat(number[i]))
-                continue;
+            if (!checkFormat(number[i])){
+                addTextToRes(ConstantsSuffix.NEXT_LINE);
+                continue;}
             if (edit.checkZero(number[i])) {
                 addTextToRes(ConstantsNumber.ZERO);
                 continue;
@@ -140,19 +141,19 @@ public class WordNumeric {
     @SuppressWarnings("unused")
     public boolean checkFormat(String inputSequence) {
         if (inputSequence.length() == 0) {
-            res.append(ConstantsError.ERROR_NULL);
+            addTextToRes(ConstantsError.ERROR_NULL);
             System.out.println(ConstantsError.ERROR_NULL);
             return false;
         }
         if (((double) inputSequence.length() / 3) > ConstantsNumber.LARGE_INDEX.size()) {
-            res.append(ConstantsError.ERROR_SIZE);
+            addTextToRes(ConstantsError.ERROR_SIZE);
             System.out.println(inputSequence + " - " + ConstantsError.ERROR_SIZE);
             return false;
         }
         try {
             BigInteger integer = new BigInteger(inputSequence);
         } catch (NumberFormatException e) {
-            res.append(ConstantsError.ERROR_TYPE);
+            addTextToRes(ConstantsError.ERROR_TYPE);
             System.out.println(inputSequence + " - " + ConstantsError.ERROR_TYPE);
             return false;
         }

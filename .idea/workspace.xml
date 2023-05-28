@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7c34fe2d-bbd5-424f-b1fb-f14e4d13214a" name="Changes" comment="numericToText">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomBigInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomBigInt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DataDrivenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DataDrivenTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DDT.xls" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/DDT.xls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +66,7 @@
       <recent name="com.example.testproject" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DataDrivenTest.testNumericText">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.testproject.HelloApplication" />
       <module name="TestProject" />
@@ -178,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685211895521</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="numericToText">
+      <created>1685293222351</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685293222351</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,32 +213,18 @@
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java</url>
-          <line>162</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java</url>
-          <line>164</line>
-          <option name="timeStamp" value="74" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java</url>
-          <line>44</line>
+          <line>40</line>
           <properties class="com.example.testproject.HelloController" method="Start">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java</url>
-          <line>161</line>
-          <properties class="com.example.testproject.WordNumeric" method="setZeroIndexes">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
