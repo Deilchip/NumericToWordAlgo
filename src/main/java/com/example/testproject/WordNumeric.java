@@ -107,9 +107,10 @@ public class WordNumeric {
         res.insert(0, constant);
     }
 
-
+    // метод для поиска текстового представления разряда и последующего добавления к ответу
     private void searchNumber(ArrayList<String> constant, byte sequence) {
         setNumberAdder(new SearchDigit());
+        // если текущая записанная в индексе summaryDigit относится к тысячам, то необходимо проверить склонение 1 и 2
         if (summaryDigit == 1 && constant == ConstantsNumber.NUMBERS_INDEX) {
             addTextToRes(numberAdder.findCommon(sequence));
         } else {
@@ -117,40 +118,54 @@ public class WordNumeric {
         }
     }
 
+    // метод для изменения входного текстового значения для последующего преобразования в customBigInt
     public void inputEdit(String numSequence) throws Exception {
+        // обнуление ответа требуется для теста, чтобы не забирал ответ ввиде цельной накапливающейся строки
         res.setLength(0);
+        // разбиение входного текстового значения по спецсимволу отвечающим за множественный ввод значений
         String[] number = numSequence.split(";");
         setEdit(new InputData());
         for (int i = number.length - 1; i >= 0; i--) {
+            // проверка формата входного значения на соответствие требованиям программы
             if (!checkFormat(number[i])) {
                 addTextToRes(ConstantsSuffix.NEXT_LINE);
                 continue;
-            } else if (edit.checkMinus(number[i])) {
-                indexMinus = 1;
-                number[i] = number[i].replaceFirst("-", "");
             }
+            // проверка на наличие минуса в текущей последовательности
+            else if (edit.checkMinus(number[i]))
+                indexMinus = 1;
+
+            /* если индекс отвечающий за проверку наличия отрицательного значения установлен, тогда отрезаем
+             * первый символ и добавляем к строковому представлению числа слово "минус" в начало
+             */
             if (indexMinus == 1) {
                 countOrder(new CustomBigInt(number[i].replaceFirst("-", "")));
                 addTextToRes(ConstantsSuffix.MINUS);
-            } else
+            }
+            // отправляем строковое представление в метод преобразования, если число положительное
+            else
                 countOrder(new CustomBigInt(number[i]));
             addTextToRes(ConstantsSuffix.NEXT_LINE);
+            // обнуление индексов для правильного отображения и учета текстовых представлений следующих чисел
             setZeroIndexes();
         }
     }
 
-    @SuppressWarnings("unused")
+    // блок кода отвечающий за обработку исключений
     public boolean checkFormat(String inputSequence) {
+        // проверка на null
         if (inputSequence.length() == 0) {
             addTextToRes(ConstantsError.ERROR_NULL);
             System.out.println(ConstantsError.ERROR_NULL);
             return false;
         }
+        // проверка на размерность числа, если превышает, то выводит сообщение о невозможности обработки числа
         if (((double) inputSequence.length() / 3) > ConstantsNumber.LARGE_INDEX.size()) {
             addTextToRes(ConstantsError.ERROR_SIZE);
             System.out.println(inputSequence + " - " + ConstantsError.ERROR_SIZE);
             return false;
         }
+        // провека на корректность введенной последовательности
         try {
             BigInteger number = new BigInteger(inputSequence);
             if (number.equals(BigInteger.valueOf(0))) {
@@ -165,6 +180,7 @@ public class WordNumeric {
         return true;
     }
 
+    // метод обнуления индексов
     private void setZeroIndexes() {
         summaryDigit = 0;
         indexMinus = 0;

@@ -6,15 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="7c34fe2d-bbd5-424f-b1fb-f14e4d13214a" name="Changes" comment="numericToText">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsNumber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsSuffix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/digit/SearchDigit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/digit/SearchDigit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomBigInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomBigInt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomContextMenuTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomContextMenuTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/input/Edit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/input/Edit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/input/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/input/InputData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Common.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Common.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Thousand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Thousand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +34,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.jdks/corretto-19.0.2/lib/src.zip!/java.base/java/lang/Class.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.jdks/corretto-19.0.2/lib/src.zip!/java.base/java/lang/IllegalAccessError.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,7 +75,7 @@
       <recent name="com.example.testproject" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DataDrivenTest.testNumericText">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.testproject.HelloApplication" />
       <module name="TestProject" />
@@ -212,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685298044033</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="numericToText">
+      <created>1685300734003</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685300734003</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,25 +242,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="numericToText" />
     <option name="LAST_COMMIT_MESSAGE" value="numericToText" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/testproject/HelloController.java</url>
-          <line>40</line>
-          <properties class="com.example.testproject.HelloController" method="Start">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
