@@ -30,7 +30,7 @@ public class WordNumeric {
 
     //геттер для вывода
     public String getRes() {
-        return res.toString().trim();
+        return res.toString();
     }
 
     public void setSuffixAdder(SuffixAdder suffixAdder) {
@@ -73,9 +73,7 @@ public class WordNumeric {
             summaryDigit++;
             indexZeroCount = 0;
         }
-
     }
-
     private void addSuffix(byte digit, byte ten) {
         if (checkZeros(digit))
             return;
@@ -88,7 +86,6 @@ public class WordNumeric {
         }
         addTextToRes(ConstantsNumber.LARGE_INDEX.get(summaryDigit));
     }
-
     private boolean checkZeros(byte number) {
         if (indexZeroCount == 3) {
             indexZeroCount = 0;
@@ -98,12 +95,9 @@ public class WordNumeric {
         }
         return false;
     }
-
     private void addTextToRes(String constant) {
         res.insert(0, constant);
     }
-
-
     private void searchNumber(ArrayList<String> constant, byte sequence) {
         setNumberAdder(new SearchDigit());
         if (summaryDigit == 1 && constant == ConstantsNumber.NUMBERS_INDEX) {
