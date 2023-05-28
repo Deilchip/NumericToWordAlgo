@@ -1,5 +1,5 @@
 package com.example.testproject.constants;
-
+//текстовые значения суффиксов
 public class ConstantsSuffix {
     public static final String MINUS ="минус ";
     public static final String SUFFIX_A = "а ";

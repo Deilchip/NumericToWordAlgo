@@ -3,6 +3,7 @@ package com.example.testproject.sufix;
 import com.example.testproject.constants.ConstantsSuffix;
 
 public class Thousand implements SuffixAdder {
+    // выбор склонения для суффикса в тысячах
     @Override
     public String processSuffix(byte digit,byte ten) {
             if (digit == 1 && ten != 1)

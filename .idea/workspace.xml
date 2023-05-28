@@ -6,9 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="7c34fe2d-bbd5-424f-b1fb-f14e4d13214a" name="Changes" comment="numericToText">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/WordNumeric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DataDrivenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DataDrivenTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/DDT.xls" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/DDT.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/constants/ConstantsSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/digit/SearchDigit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/digit/SearchDigit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomBigInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomBigInt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomContextMenuTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/extensions/CustomContextMenuTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/input/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/input/InputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Common.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Common.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Thousand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/testproject/sufix/Thousand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +32,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.jdks/corretto-19.0.2/lib/src.zip!/java.base/java/lang/Class.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/corretto-19.0.2/lib/src.zip!/java.base/java/lang/IllegalAccessError.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
