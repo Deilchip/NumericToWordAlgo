@@ -29,7 +29,7 @@ public class WordNumeric {
 
     //геттер для вывода
     public String getRes() {
-        return res.toString().replaceFirst("\n","");
+        return res.toString().replaceFirst("\n", "");
     }
 
     public void setSuffixAdder(SuffixAdder suffixAdder) {
@@ -57,7 +57,7 @@ public class WordNumeric {
      */
     private void countOrder(CustomBigInt sequence) {
         while (!sequence.checkValue()) {
-            if(sequence.checkZeros()){
+            if (sequence.checkZeros()) {
                 sequence.deleteDigit((byte) 3);
                 summaryDigit++;
                 continue;
@@ -110,16 +110,15 @@ public class WordNumeric {
         for (int i = number.length - 1; i >= 0; i--) {
             if (!checkFormat(number[i]))
                 continue;
-            if (edit.checkZero(number[i])) {
-                addTextToRes(ConstantsNumber.ZERO);
-                continue;
-            } else if (edit.checkMinus(number[i])) {
+            else if (edit.checkMinus(number[i])) {
                 indexMinus = 1;
                 number[i] = number[i].replaceFirst("-", "");
             }
-            countOrder(new CustomBigInt(number[i]));
-            if (indexMinus == 1)
+            if (indexMinus == 1) {
+                countOrder(new CustomBigInt(number[i].replaceFirst("-", "")));
                 addTextToRes(ConstantsSuffix.MINUS);
+            } else
+                countOrder(new CustomBigInt(number[i]));
             addTextToRes(ConstantsSuffix.NEXT_LINE);
             setZeroIndexes();
         }
@@ -138,7 +137,11 @@ public class WordNumeric {
             return false;
         }
         try {
-            BigInteger integer = new BigInteger(inputSequence);
+            BigInteger number = new BigInteger(inputSequence);
+            if (number.equals(BigInteger.valueOf(0))) {
+                addTextToRes(ConstantsNumber.ZERO);
+                return false;
+            }
         } catch (NumberFormatException e) {
             addTextToRes(ConstantsError.ERROR_TYPE);
             System.out.println(inputSequence + " - " + ConstantsError.ERROR_TYPE);
