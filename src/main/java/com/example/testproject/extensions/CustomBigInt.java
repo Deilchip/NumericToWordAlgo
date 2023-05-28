@@ -21,6 +21,9 @@ public class CustomBigInt {
             count--;
         }
     }
+    public boolean checkZeros(){
+        return numericView.mod(BigInteger.valueOf(1000)).intValue() == 0;
+    }
     public byte seeTens() {
         return numericView.divide(BigInteger.TEN).mod(BigInteger.TEN).byteValue();
     }

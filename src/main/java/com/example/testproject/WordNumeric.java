@@ -23,14 +23,13 @@ public class WordNumeric {
     //индекс для проверки отрицательного значения
     private int indexMinus = 0;
     //индекс для отслеживания 3 пустых разрядов для избежания записи неправильного наименования 10 в n-ой степени
-    private byte indexZeroCount = 0;
     private SuffixAdder suffixAdder;
     private NumberAdder numberAdder;
     private Edit edit;
 
     //геттер для вывода
     public String getRes() {
-        return res.toString();
+        return res.toString().replaceFirst("\n","");
     }
 
     public void setSuffixAdder(SuffixAdder suffixAdder) {
@@ -58,6 +57,11 @@ public class WordNumeric {
      */
     private void countOrder(CustomBigInt sequence) {
         while (!sequence.checkValue()) {
+            if(sequence.checkZeros()){
+                sequence.deleteDigit((byte) 3);
+                summaryDigit++;
+                continue;
+            }
             addSuffix(sequence.seeCurrentDigit(), sequence.seeTens());
             if (sequence.seeTens() == 1 &&
                     sequence.seeCurrentDigit() != 0)
@@ -71,12 +75,10 @@ public class WordNumeric {
             searchNumber(ConstantsNumber.HUNDRED_INDEX, sequence.seeCurrentDigit());
             sequence.deleteDigit((byte) 1);
             summaryDigit++;
-            indexZeroCount = 0;
         }
     }
+
     private void addSuffix(byte digit, byte ten) {
-        if (checkZeros(digit))
-            return;
         if (summaryDigit > 1) {
             setSuffixAdder(new Common());
             addTextToRes(suffixAdder.processSuffix(digit, ten));
@@ -86,18 +88,11 @@ public class WordNumeric {
         }
         addTextToRes(ConstantsNumber.LARGE_INDEX.get(summaryDigit));
     }
-    private boolean checkZeros(byte number) {
-        if (indexZeroCount == 3) {
-            indexZeroCount = 0;
-            return true;
-        } else if (number == 0) {
-            indexZeroCount++;
-        }
-        return false;
-    }
+
     private void addTextToRes(String constant) {
         res.insert(0, constant);
     }
+
     private void searchNumber(ArrayList<String> constant, byte sequence) {
         setNumberAdder(new SearchDigit());
         if (summaryDigit == 1 && constant == ConstantsNumber.NUMBERS_INDEX) {
@@ -113,9 +108,8 @@ public class WordNumeric {
         String[] number = numSequence.split(";");
         setEdit(new InputData());
         for (int i = number.length - 1; i >= 0; i--) {
-            if (!checkFormat(number[i])){
-                addTextToRes(ConstantsSuffix.NEXT_LINE);
-                continue;}
+            if (!checkFormat(number[i]))
+                continue;
             if (edit.checkZero(number[i])) {
                 addTextToRes(ConstantsNumber.ZERO);
                 continue;
@@ -128,7 +122,6 @@ public class WordNumeric {
                 addTextToRes(ConstantsSuffix.MINUS);
             addTextToRes(ConstantsSuffix.NEXT_LINE);
             setZeroIndexes();
-
         }
     }
 
