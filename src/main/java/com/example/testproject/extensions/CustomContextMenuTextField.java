@@ -5,7 +5,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
 public class CustomContextMenuTextField extends TextField {
-    //настройка меню при нажатии правой кнопки мыши
+    //настройка контекстного меню вызываемого при нажатии правой кнопки мыши
     public CustomContextMenuTextField() {
         super();
         MenuItem cut = new MenuItem("Вырезать");

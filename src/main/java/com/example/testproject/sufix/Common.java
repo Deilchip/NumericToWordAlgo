@@ -3,7 +3,7 @@ package com.example.testproject.sufix;
 import com.example.testproject.constants.ConstantsSuffix;
 
 public class Common implements SuffixAdder{
-    // выбор склонения для суффикса в общем случае
+    // выбор склонения для суффикса в случае, если степень десятки не эквивалентна тысячам
     @Override
     public String processSuffix(byte digit, byte ten) {
         if (digit == 1 && ten != 1)

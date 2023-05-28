@@ -2,7 +2,7 @@ package com.example.testproject.constants;
 
 import java.util.ArrayList;
 
-//текстовые значения цифр
+
 public class ConstantsNumber {
     public static final String ZERO ="ноль";
     public static final ArrayList<String> NUMBERS_INDEX = new ArrayList<>();

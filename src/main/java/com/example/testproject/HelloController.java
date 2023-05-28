@@ -10,21 +10,18 @@ public class HelloController {
 
     @FXML
     private TextArea out;
-
     @FXML
     private Button buttonStart;
     @FXML
     private CustomContextMenuTextField input;
 
 
-    @SuppressWarnings("all")
     public void initialize() {
+        //отключение вставки в текстовую строку
         input.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
             if (event.isControlDown() && event.getCode().toString().equals("V")
                     || event.isMetaDown() && event.getCode().toString().equals("V")) {event.consume();}});
-        input.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.isControlDown() && event.getCode().toString().equals("V")
-                    || event.isMetaDown() && event.getCode().toString().equals("V")) {event.consume();}});
+        // запрет на ввод в текстовое поле что-то кроме разрешенных символов ";" "-" и цифр 0-9
         input.addEventFilter(KeyEvent.KEY_TYPED, event -> {
             String character = event.getCharacter();
             boolean isDigit = character.matches("[0-9]");
@@ -33,10 +30,12 @@ public class HelloController {
                 event.consume();
             }
         });
-        input.textProperty().addListener((observable, oldValue, newValue) -> {
-            buttonStart.setDisable(input.getText().isEmpty());
-        });
+        // отключение кнопки старта, если текстовое поле пустое
+        input.textProperty().addListener((observable, oldValue, newValue) ->
+                buttonStart.setDisable(input.getText().isEmpty()));
     }
+
+    // метод запускающий алгоритм преобразования
     @FXML
     public void Start() throws Exception {
         WordNumeric numericToWord = new WordNumeric();

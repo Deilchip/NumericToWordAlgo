@@ -28,12 +28,12 @@ public class CustomBigInt {
         return numericView.mod(BigInteger.valueOf(1000)).intValue() == 0;
     }
 
-    //посмотреть и удалить последнюю цифру числа
+    // посмотреть последнюю разряд десяток числа
     public byte seeTens() {
         return numericView.divide(BigInteger.TEN).mod(BigInteger.TEN).byteValue();
     }
 
-    //посмотреть последнюю цифру числа
+    //посмотреть текущий разряд
     public byte seeCurrentDigit() {
         return numericView.mod(BigInteger.TEN).byteValue();
     }
