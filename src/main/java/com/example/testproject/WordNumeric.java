@@ -45,53 +45,68 @@ public class WordNumeric {
     }
 
 
-    /* метод принимает в себя поочередно целочисленные значения типа CustomBigInt
-     * за каждый проход цикла метод рассматривает 3 разряда, сначала проверяет наличие уникальных десяток
-     * находит он их по следующему разряду (десятки), если он равен 1 и текущий разряд(единицы) равен любой цифре кроме 0
-     * типа "одиннадцать,двенадцать" и т.д.
-     * если текущий разряд (единицы) - ноль, то рассматривает из справочника названия для разряда десяток
-     * после проверок удаляет два разряда (единицы, десятки) за ненадобностью их дальнейшего использования
-     * проверяет следующую цифру на разряд сотен и вписывает значение
-     * т.к. метод рассматривает по 3 разряда, то в конце присутствует инкремент для переменной summaryDigit
-     * также по метод обнуляет переменную indexZeroCount по той же причине, т.к. все нужные разряды были просмотрены
-     */
+    // метод перевода целочисленного представления в текстовом виде
     private void countOrder(CustomBigInt sequence) {
         while (!sequence.checkValue()) {
+            // проверка 3 разрядов на наличие нулей, если все 3 разряда = 0 тогда удаляем их и добавляем 1 к summaryDigit
             if (sequence.checkZeros()) {
                 sequence.deleteDigit((byte) 3);
                 summaryDigit++;
                 continue;
             }
+            // вызов метода для добавления суфикса
             addSuffix(sequence.seeCurrentDigit(), sequence.seeTens());
+            /* просмотр последующего(десятки) и текущего(единицы) разряда, если текущий не равен 0 и последующий
+             * равен 1, тогда отправляем только текущий разряд в поиск цифры для нахождения уникальных десяток
+             * типа: одиннадцать, тринадцать и т.д.
+             */
             if (sequence.seeTens() == 1 &&
                     sequence.seeCurrentDigit() != 0)
                 searchNumber(ConstantsNumber.UNIQUE_TENS, sequence.seeCurrentDigit());
+           /* просмотр последующего(десятки) разряда, если он не ноль, тогда просто находим индекс совпадающий
+            * с текстовым представлением разряда
+            */
             else if (sequence.seeTens() != 0) {
                 searchNumber(ConstantsNumber.NUMBERS_INDEX, sequence.seeCurrentDigit());
                 searchNumber(ConstantsNumber.TEN_INDEX, sequence.seeTens());
-            } else
+            }
+            // нахождение совпадения значения разряда единиц с текстовым представлением
+            else
                 searchNumber(ConstantsNumber.NUMBERS_INDEX, sequence.seeCurrentDigit());
+            // удаление двух разрядов, т.к. выше были рассмотрены разряды единиц и десяток
             sequence.deleteDigit((byte) 2);
+            // нахождение совпадения значения разряда сотен с текстовым представлением
             searchNumber(ConstantsNumber.HUNDRED_INDEX, sequence.seeCurrentDigit());
+            // удаление третьего разряда (сотен)
             sequence.deleteDigit((byte) 1);
+            // инкрементация индекса для отслеживания нужного текстового представления степени 10 (тысячи,миллионы и т.д)
             summaryDigit++;
         }
     }
 
+    //метод для добавления к текстовому представлению степени 10 правильного суффикса (миллион(а/ов/ )
     private void addSuffix(byte digit, byte ten) {
+        /* общая проверка, у всех текстовых представлений выше тысячи суффиксы и построение одинаково
+         * (миллион(а/ов ), миллиард(а/ов ), триллион(а/ов/ ) и т.д.
+         */
         if (summaryDigit > 1) {
             setSuffixAdder(new Common());
             addTextToRes(suffixAdder.processSuffix(digit, ten));
-        } else if (summaryDigit == 1) {
+        }
+        // проверка на текстовое представление для тысяч, т.к. у нех построение уникально
+        else if (summaryDigit == 1) {
             setSuffixAdder(new Thousand());
             addTextToRes(suffixAdder.processSuffix(digit, ten));
         }
+        // добавление самого текстового представления степени 10
         addTextToRes(ConstantsNumber.LARGE_INDEX.get(summaryDigit));
     }
 
+    // добавление какого-либо текстового представления
     private void addTextToRes(String constant) {
         res.insert(0, constant);
     }
+
 
     private void searchNumber(ArrayList<String> constant, byte sequence) {
         setNumberAdder(new SearchDigit());
@@ -102,15 +117,15 @@ public class WordNumeric {
         }
     }
 
-
     public void inputEdit(String numSequence) throws Exception {
         res.setLength(0);
         String[] number = numSequence.split(";");
         setEdit(new InputData());
         for (int i = number.length - 1; i >= 0; i--) {
-            if (!checkFormat(number[i]))
+            if (!checkFormat(number[i])) {
+                addTextToRes(ConstantsSuffix.NEXT_LINE);
                 continue;
-            else if (edit.checkMinus(number[i])) {
+            } else if (edit.checkMinus(number[i])) {
                 indexMinus = 1;
                 number[i] = number[i].replaceFirst("-", "");
             }
